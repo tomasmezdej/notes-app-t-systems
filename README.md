@@ -29,3 +29,7 @@ cd notes-app
 ```
 <b>Please do a fork!</b>
 <br>Happy coding!
+
+> [!WARNING]
+> ## 🤖 Skynet is not invited.
+> This assignment is a **humans-only challenge**. Please don't use AI assistants/agents.
