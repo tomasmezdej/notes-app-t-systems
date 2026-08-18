@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Button, Typography } from '@mui/material';
 import { getNotes } from './features/notes/notesSlice';
 import NoteForm from './components/NoteForm';
+import NoteList from './components/NoteList';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,10 @@ function App() {
         open={formOpen}
         onClose={handleClose}
         editingNote={editingNote}
+      />
+
+      <NoteList
+        onEdit={handleEdit}
       />
     </Container>
   );

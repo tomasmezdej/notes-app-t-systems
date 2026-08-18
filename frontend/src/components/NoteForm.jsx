@@ -86,7 +86,7 @@ function NoteForm({ open, onClose, editingNote }) {
           fullWidth
         >
           {CATEGORIES.map((cat) => (
-            <MenuItem key={cat} value={cat}>{cat}</MenuItem>
+            <MenuItem key={cat.name} value={cat.name}>{cat.name}</MenuItem>
           ))}
         </TextField>
       </DialogContent>
