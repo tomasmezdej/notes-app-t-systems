@@ -23,6 +23,7 @@ const notesSlice = createSlice({
     items: [],
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
+    filter: '',
   },
   reducers: {
     setFilter(state, action) {
@@ -45,7 +46,11 @@ const notesSlice = createSlice({
       })
       .addCase(removeNote.fulfilled, (state, action) => {
         state.items = state.items.filter(n => n.id !== action.payload);
-      });
+      })
+      .addCase(getNotes.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    });
   },
 });
 
