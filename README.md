@@ -1,11 +1,13 @@
 # Mocked API Note Object structure
+```json
 {
-  id: auto-generated,
-  title: string (max 80 characters)
-  description: string (max 200 characters)
-  category: string (values in /constants/categories.sj)
-  createdAt: recent date
+  "id": "auto-generated",
+  "title": "string (max 80 characters)",
+  "description": "string (max 200 characters)",
+  "category": "string (values in /constants/categories.js)",
+  "createdAt": "recent date"
 }
+```
 
 # Notes app
 Notes App hosted on this GitHub repository unite React for the frontend and Node.js for the backend. Create, edit, and delete notes with ease. Find notes quickly with the dynamic search feature and maintain brevity with a character limit. Filter them on need. A versatile solution for efficient digital note management. Keep focus on clean and maintainable code.
