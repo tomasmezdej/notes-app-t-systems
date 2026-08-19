@@ -4,11 +4,13 @@ import { Container, Button, Typography } from '@mui/material';
 import { getNotes } from './features/notes/notesSlice';
 import NoteForm from './components/NoteForm';
 import NoteList from './components/NoteList';
+import FilterBar from './components/FilterBar';
 
 function App() {
   const dispatch = useDispatch();
   const [formOpen, setFormOpen] = useState(false);
   const [editingNote, setEditingNote] = useState(null);
+  const [sortOrder, setSortOrder] = useState('desc');
 
   useEffect(() => {
     dispatch(getNotes());
@@ -24,12 +26,20 @@ function App() {
     setFormOpen(false);
   };
 
+  const toggleSortOrder = () => {
+    setSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'));
+  };
+
   return (
     <Container maxWidth="md" sx={{ paddingTop: 4 }}>
       <Typography variant="h4" sx={{ marginBottom: 2 }}>Notes</Typography>
       <Button variant="contained" onClick={() => setFormOpen(true)} sx={{ marginBottom: 2 }}>
         Add Note
       </Button>
+      <FilterBar
+        sortOrder={sortOrder}
+        onToggleSort={toggleSortOrder}
+      />
       <NoteForm
         open={formOpen}
         onClose={handleClose}
@@ -38,6 +48,7 @@ function App() {
 
       <NoteList
         onEdit={handleEdit}
+        sortOrder={sortOrder}
       />
     </Container>
   );

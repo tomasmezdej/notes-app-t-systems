@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeNote } from '../features/notes/notesSlice';
 import NoteCard from './NoteCard';
 
-function NoteList({ onEdit }) {
+function NoteList({ onEdit, sortOrder }) {
   const dispatch = useDispatch();
   const { items, status, error, filter } = useSelector((state) => state.notes);
 
@@ -14,8 +14,10 @@ function NoteList({ onEdit }) {
     ? items.filter((note) => note.category === filter)
     : items;
 
-  const sortedNotes = [...filteredNotes].sort(
-    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  const sortedNotes = [...filteredNotes].sort((a, b) =>
+    sortOrder === 'desc'
+      ? new Date(b.createdAt) - new Date(a.createdAt)
+      : new Date(a.createdAt) - new Date(b.createdAt)
   );
 
   if (status === 'loading') return <p>Loading...</p>;
