@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Container, Button, Typography } from '@mui/material';
 import { getNotes } from './features/notes/notesSlice';
 import NoteForm from './components/NoteForm';
